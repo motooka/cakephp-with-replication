@@ -1,0 +1,37 @@
+version: '3'
+services:
+  web:
+    build: ./docker/web
+    environment:
+      DEBIAN_FRONTEND: "noninteractive"
+      TZ: "Etc/UTC"
+    ports:
+     - "8080:80"
+    volumes:
+     - .:/repository
+    links:
+     - mysql:mysql
+    tty: true
+  mysql:
+    build: ./docker/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+     - '3306:3306'
+    tty: true
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_0900_ai_ci']
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.9
+    environment:
+     #- PMA_ARBITRARY=1
+     - PMA_HOST=mysql
+     - PMA_USER=root
+     - PMA_PASSWORD=root
+     - NavigationTreeEnableGrouping=false
+    ports:
+     - 8081:80
+    #volumes:
+    # - /sessions
+    links:
+     - mysql:mysql
+
