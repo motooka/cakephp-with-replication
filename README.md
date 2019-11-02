@@ -3,6 +3,7 @@
 An implementation of [CakePHP CMS Tutorial](https://book.cakephp.org/3/en/tutorials-and-examples/cms/installation.html) which comes with :
 
 - RDB replication considerations
+	- models connect to the master database by default, and to replicas if specified to do so.
 - Docker settings for local development environment
 
 # Requirements
