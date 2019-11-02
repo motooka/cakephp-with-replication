@@ -1,4 +1,5 @@
 # CakePHP CMS Tutorial with RDB Replication Considerations
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgreen.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 An implementation of [CakePHP CMS Tutorial](https://book.cakephp.org/3/en/tutorials-and-examples/cms/installation.html) which comes with :
 
 - RDB replication considerations
@@ -36,7 +37,13 @@ Note : If you have some troubles on `docker-compose build`, try `docker-compose 
 	- http://localhost:8081/ : phpMyAdmin
 
 # License
-MIT License
+[Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
+Please note that this repository depends on and contains the following works, under their licenses.
+- [CakePHP Application Skeleton](https://github.com/cakephp/app)
+	- MIT License
+- [CakePHP CMS Tutorial](https://book.cakephp.org/3/en/tutorials-and-examples/cms/installation.html)
+	- [license](https://github.com/cakephp/docs/blob/3.0/LICENSE.txt) (CC BY-NC-SA 4.0)
 
 # Version Information
 - CakePHP : 3.8
