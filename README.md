@@ -1,10 +1,12 @@
 # CakePHP CMS Tutorial with RDB Replication Considerations
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgreen.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-An implementation of [CakePHP CMS Tutorial](https://book.cakephp.org/3/en/tutorials-and-examples/cms/installation.html) which comes with :
 
-- RDB replication considerations
+An implementation of [CakePHP CMS Tutorial](https://book.cakephp.org/3/en/tutorials-and-examples/cms/installation.html) which comes :
+
+- with RDB replication considerations
 	- models connect to the master database by default, and to replicas if specified to do so.
-- Docker settings for local development environment
+- with Docker settings for local development environment
+- without the authentication part
 
 # Requirements
 - [Docker Compose](https://docs.docker.com/compose/install/)
@@ -34,8 +36,10 @@ Note : If you have some troubles on `docker-compose build`, try `docker-compose 
 	- `docker-compose down` : destroy the containers. You will need Installation steps described above to reenable the environment after destroying.
 	- `docker-compose exec web bash` : destroy the containers
 - URLs
-	- http://localhost:8080/ : the CMS app
-	- http://localhost:8081/ : phpMyAdmin
+	- http://localhost:8080/ : the app default page to confirm environments and so on
+	- http://localhost:8080/tags : Tag list of the CMS app
+	- http://localhost:8080/articles : Article list of the CMS app
+	- http://localhost:8081/db_structure.php?server=1&db=cake_cms : phpMyAdmin
 
 # License
 [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
