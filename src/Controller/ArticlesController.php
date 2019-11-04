@@ -13,7 +13,7 @@ class ArticlesController extends AppController
     
     public function index()
     {
-        // use ReadReplica for this actoin
+        // use ReadReplica for this action
         $this->Articles->changeConnectionToReadReplica();
         
         $articles = $this->Paginator->paginate($this->Articles->find());
@@ -40,7 +40,7 @@ class ArticlesController extends AppController
     
     public function view($slug)
     {
-        // use ReadReplica for this actoin
+        // use ReadReplica for this action
         $this->Articles->changeConnectionToReadReplica();
         
         $article = $this->Articles->findBySlug($slug)->contain(['Tags'])
