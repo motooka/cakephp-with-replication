@@ -39,6 +39,7 @@ class UsersTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('ReplicaConnectable');
 
         $this->hasMany('Articles', [
             'foreignKey' => 'user_id'

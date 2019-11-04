@@ -13,6 +13,9 @@ class ArticlesController extends AppController
     
     public function index()
     {
+        // use ReadReplica for this actoin
+        $this->Articles->changeConnectionToReadReplica();
+        
         $articles = $this->Paginator->paginate($this->Articles->find());
         $this->set(compact('articles'));
     }
@@ -37,6 +40,9 @@ class ArticlesController extends AppController
     
     public function view($slug)
     {
+        // use ReadReplica for this actoin
+        $this->Articles->changeConnectionToReadReplica();
+        
         $article = $this->Articles->findBySlug($slug)->contain(['Tags'])
             ->firstOrFail();
         $this->set(compact('article'));
@@ -44,6 +50,9 @@ class ArticlesController extends AppController
     
     public function add()
     {
+        // if you call this here, an exception will be thrown on 'post' requests.
+        // $this->Articles->changeConnectionToReadReplica();
+        
         $article = $this->Articles->newEntity();
         if ($this->request->is('post')) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());
@@ -54,6 +63,8 @@ class ArticlesController extends AppController
             
             if ($this->Articles->save($article)) {
                 $this->Flash->success(__('Your article has been saved.'));
+                
+                // If data is replicated asynchronously, the inserted row sometimes does not appear on the redirect destination.
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Unable to add your article.'));

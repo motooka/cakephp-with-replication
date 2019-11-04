@@ -39,6 +39,7 @@ class TagsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('ReplicaConnectable');
 
         $this->belongsToMany('Articles', [
             'foreignKey' => 'tag_id',

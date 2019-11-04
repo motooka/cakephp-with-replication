@@ -11,6 +11,7 @@ class ArticlesTable extends Table
     public function initialize(array $config)
     {
         $this->addBehavior('Timestamp');
+        $this->addBehavior('ReplicaConnectable');
         $this->belongsToMany('Tags', [
             'joinTable' => 'articles_tags',
             'dependent' => true
